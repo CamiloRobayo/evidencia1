@@ -12,7 +12,7 @@ namespace evidencia1.Controllers
         // GET: roles
         public ActionResult Index()
         {
-            using (var bd = new inventario_2021Entities())
+            using (var bd = new inventario_2021Entities2())
             {
                 return View(bd.roles.ToList());
             }
@@ -32,7 +32,7 @@ namespace evidencia1.Controllers
                 return View();
             try
             {
-                using (var bd = new inventario_2021Entities())
+                using (var bd = new inventario_2021Entities2())
                 {
                     bd.roles.Add(roles);
                     bd.SaveChanges();
@@ -48,7 +48,7 @@ namespace evidencia1.Controllers
 
         public ActionResult Details(int id)
         {
-            using (var bd = new inventario_2021Entities())
+            using (var bd = new inventario_2021Entities2())
             {
                 var findrol = bd.roles.Find(id);
                 return View(findrol);
@@ -58,7 +58,7 @@ namespace evidencia1.Controllers
         {
             try
             {
-                using (var bd = new inventario_2021Entities())
+                using (var bd = new inventario_2021Entities2())
                 {
                     var findrol = bd.roles.Find(id);
                     bd.roles.Remove(findrol);
@@ -77,7 +77,7 @@ namespace evidencia1.Controllers
         {
             try
             {
-                using (var bd = new inventario_2021Entities())
+                using (var bd = new inventario_2021Entities2())
                 {
                     roles findrol = bd.roles.Where(a => a.id == id).FirstOrDefault();
                     return View(findrol);
@@ -97,7 +97,7 @@ namespace evidencia1.Controllers
             try
             {
 
-                using (var bd = new inventario_2021Entities())
+                using (var bd = new inventario_2021Entities2())
                 {
                     roles roll = bd.roles.Find(editroles.id);
 

@@ -11,7 +11,7 @@ namespace evidencia1.Controllers
         // GET: Usuarios
         public ActionResult Index()
         {
-            using (var db = new inventario_2021Entities())
+            using (var db = new inventario_2021Entities2())
             {
                 return View(db.usuario.ToList());
             }
@@ -30,7 +30,7 @@ namespace evidencia1.Controllers
                 return View();
             try
             {
-                using (var db = new inventario_2021Entities())
+                using (var db = new inventario_2021Entities2())
                 {
                     db.usuario.Add(usuario);
                     db.SaveChanges();
@@ -48,7 +48,7 @@ namespace evidencia1.Controllers
 
         public ActionResult Details(int id)
         {
-            using (var db = new inventario_2021Entities())
+            using (var db = new inventario_2021Entities2())
             {
                 var findUser = db.usuario.Find(id);
                 return View(findUser);
@@ -58,7 +58,7 @@ namespace evidencia1.Controllers
         {
             try
             {
-                using (var db = new inventario_2021Entities())
+                using (var db = new inventario_2021Entities2())
                 {
                     var findUser = db.usuario.Find(id);
                     db.usuario.Remove(findUser);
@@ -77,7 +77,7 @@ namespace evidencia1.Controllers
         {
             try
             {
-                using (var db = new inventario_2021Entities())
+                using (var db = new inventario_2021Entities2())
                 {
                     usuario findUser = db.usuario.Where(a => a.id == id).FirstOrDefault();
                     return View(findUser);
@@ -97,7 +97,7 @@ namespace evidencia1.Controllers
             try
             {
 
-                using (var db = new inventario_2021Entities())
+                using (var db = new inventario_2021Entities2())
                 {
                     usuario user = db.usuario.Find(editUser.id);
 

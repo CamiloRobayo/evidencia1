@@ -11,7 +11,7 @@ namespace evidencia1.Controllers
         // GET: Clientes
         public ActionResult Index()
         {
-            using (var db = new inventario_2021Entities())
+            using (var db = new inventario_2021Entities2())
             {
                 return View(db.cliente.ToList());
             }
@@ -31,7 +31,7 @@ namespace evidencia1.Controllers
 
             try
             {
-                using (var db = new inventario_2021Entities())
+                using (var db = new inventario_2021Entities2())
                 {
                     db.cliente.Add(cliente);
                     db.SaveChanges();
@@ -49,7 +49,7 @@ namespace evidencia1.Controllers
         }
         public ActionResult Details(int id)
         {
-            using (var db = new inventario_2021Entities())
+            using (var db = new inventario_2021Entities2())
             {
                 var findente = db.cliente.Find(id);
                 return View(findente);
@@ -59,7 +59,7 @@ namespace evidencia1.Controllers
         {
             try
             {
-                using (var db = new inventario_2021Entities())
+                using (var db = new inventario_2021Entities2())
                 {
                     var findente = db.cliente.Find(id);
                     db.cliente.Remove(findente);
@@ -78,7 +78,7 @@ namespace evidencia1.Controllers
         {
             try
             {
-                using (var db = new inventario_2021Entities())
+                using (var db = new inventario_2021Entities2())
                 {
                     cliente findente = db.cliente.Where(a => a.id == id).FirstOrDefault();
                     return View(findente);
@@ -98,7 +98,7 @@ namespace evidencia1.Controllers
             try
             {
 
-                using (var db = new inventario_2021Entities())
+                using (var db = new inventario_2021Entities2())
                 {
                     cliente ente = db.cliente.Find(editente.id);
 

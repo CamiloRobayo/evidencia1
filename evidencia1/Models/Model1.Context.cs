@@ -13,10 +13,10 @@ namespace evidencia1.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class inventario_2021Entities : DbContext
+    public partial class inventario_2021Entities2 : DbContext
     {
-        public inventario_2021Entities()
-            : base("name=inventario_2021Entities")
+        public inventario_2021Entities2()
+            : base("name=inventario_2021Entities2")
         {
         }
     

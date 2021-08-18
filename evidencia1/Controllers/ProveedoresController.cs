@@ -11,7 +11,7 @@ namespace evidencia1.Controllers
         // GET: Proveedores
         public ActionResult Index()
         {
-            using (var db = new inventario_2021Entities())
+            using (var db = new inventario_2021Entities2())
             {
                 return View(db.proveedor.ToList());
             }
@@ -32,7 +32,7 @@ namespace evidencia1.Controllers
                 return View();
             try
             {
-                using (var db = new inventario_2021Entities())
+                using (var db = new inventario_2021Entities2())
                 {
                     db.proveedor.Add(proveedor);
                     db.SaveChanges();
@@ -50,7 +50,7 @@ namespace evidencia1.Controllers
 
         public ActionResult Details(int id)
         {
-            using (var db = new inventario_2021Entities())
+            using (var db = new inventario_2021Entities2())
             {
                 var findprover = db.proveedor.Find(id);
                 return View(findprover);
@@ -60,7 +60,7 @@ namespace evidencia1.Controllers
         {
             try
             {
-                using (var db = new inventario_2021Entities())
+                using (var db = new inventario_2021Entities2())
                 {
                     var findprover = db.proveedor.Find(id);
                     db.proveedor.Remove(findprover);
@@ -79,7 +79,7 @@ namespace evidencia1.Controllers
         {
             try
             {
-                using (var db = new inventario_2021Entities())
+                using (var db = new inventario_2021Entities2())
                 {
                     proveedor findprover = db.proveedor.Where(a => a.id == id).FirstOrDefault();
                     return View(findprover);
@@ -99,7 +99,7 @@ namespace evidencia1.Controllers
             try
             {
 
-                using (var db = new inventario_2021Entities())
+                using (var db = new inventario_2021Entities2())
                 {
                     proveedor prover = db.proveedor.Find(editprover.id);
 
