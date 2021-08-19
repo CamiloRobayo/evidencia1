@@ -262,6 +262,11 @@
     <Content Include="Views\Usuariorol\Details.cshtml" />
     <Content Include="Views\Usuariorol\Edit.cshtml" />
     <Content Include="Views\Compra\Index.cshtml" />
+    <Content Include="Views\Compra\ListarUsuario.cshtml" />
+    <Content Include="Views\Compra\ListarCliente.cshtml" />
+    <Content Include="Views\Compra\Create.cshtml" />
+    <Content Include="Views\Compra\Details.cshtml" />
+    <Content Include="Views\Compra\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,50 @@
+﻿@model evidencia1.Models.compra
+
+@{
+    ViewBag.Title = "Detalles";
+}
+
+<h2>Detalles</h2>
+
+<div>
+    <h4>compra</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Fecha:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha)
+        </dd>
+
+        <dt>
+            Total:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.total)
+        </dd>
+
+        <dt>
+            Usuario: 
+        </dt>
+
+        <dd>
+            @evidencia1.Controllers.CompraController.NombreUsuario(Model.id_usuario)
+        </dd>
+
+        <dt>
+            Cliente: 
+        </dt>
+
+        <dd>
+            @evidencia1.Controllers.CompraController.NombreUsuario(Model.id_cliente)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Regresar", "Index")
+</p>
