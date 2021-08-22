@@ -1,4 +1,4 @@
-﻿@model evidencia1.Models.cliente
+﻿@model evidencia1.Models.producto_compra
 
 @{
     ViewBag.Title = "Detalles";
@@ -7,31 +7,31 @@
 <h2>Detalles</h2>
 
 <div>
-    <h4>cliente</h4>
+    <h4>producto_compra</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            Nombre:
+            Compra:
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.nombre)
+            @evidencia1.Controllers.Producto_CompraController.TotalCompra(Model.id_compra)
         </dd>
 
         <dt>
-            Documento:
+            Producto:
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.documento)
+            @evidencia1.Controllers.Producto_CompraController.NombreProducto(Model.id_producto)
         </dd>
 
         <dt>
-            Correo Electronico:
+            Cantidad:
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.email)
+            @Html.DisplayFor(model => model.cantidad)
         </dd>
 
     </dl>

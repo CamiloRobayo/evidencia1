@@ -6,24 +6,16 @@ using System.Web.Mvc;
 using evidencia1.Models;
 namespace evidencia1.Controllers
 {
-    public class Producto_CompraController : Controller
+    public class Producto_imagenController : Controller
     {
-        // GET: Producto_Compra
+        // GET: Producto_imagen
         public ActionResult Index()
         {
             using (var db = new inventario_2021Entities2())
             {
-                return View(db.producto_compra.ToList());
+                return View(db.producto_imagen.ToList());
             }
 
-        }
-
-        public static int TotalCompra (int idcompra)
-        {
-            using (var db = new inventario_2021Entities2())
-            {
-                return db.compra.Find(idcompra).total;
-            }
         }
 
         public static string NombreProducto(int idproducto)
@@ -31,14 +23,6 @@ namespace evidencia1.Controllers
             using (var db = new inventario_2021Entities2())
             {
                 return db.producto.Find(idproducto).nombre;
-            }
-        }
-
-        public ActionResult ListaCompra()
-        {
-            using (var db = new inventario_2021Entities2())
-            {
-                return PartialView(db.compra.ToList());
             }
         }
 
@@ -58,7 +42,7 @@ namespace evidencia1.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(producto_compra producto_Compra)
+        public ActionResult Create(producto_imagen producto_Imagen)
         {
             if (!ModelState.IsValid)
                 return View();
@@ -67,7 +51,7 @@ namespace evidencia1.Controllers
             {
                 using (var db = new inventario_2021Entities2())
                 {
-                    db.producto_compra.Add(producto_Compra);
+                    db.producto_imagen.Add(producto_Imagen);
                     db.SaveChanges();
                     return RedirectToAction("Index");
                 }
@@ -83,7 +67,7 @@ namespace evidencia1.Controllers
         {
             using (var db = new inventario_2021Entities2())
             {
-                return View(db.producto_compra.Find(id));
+                return View(db.producto_imagen.Find(id));
             }
         }
 
@@ -91,23 +75,22 @@ namespace evidencia1.Controllers
         {
             using (var db = new inventario_2021Entities2())
             {
-                producto_compra productocompraEdit = db.producto_compra.Where(a => a.id == id).FirstOrDefault();
-                return View(productocompraEdit);
+                producto_imagen productoimagenEdit = db.producto_imagen.Where(a => a.id == id).FirstOrDefault();
+                return View(productoimagenEdit);
             }
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(producto_compra productocompraEdit)
+        public ActionResult Edit(producto_imagen productoimagenEdit)
         {
             try
             {
                 using (var db = new inventario_2021Entities2())
                 {
-                    var oldproductocompra = db.producto_compra.Find(productocompraEdit.id);
-                    oldproductocompra.id_compra = productocompraEdit.id_compra;
-                    oldproductocompra.id_producto = productocompraEdit.id_producto;
-                    oldproductocompra.cantidad = productocompraEdit.cantidad;
+                    var oldproductoimagen = db.producto_imagen.Find(productoimagenEdit.id);
+                    oldproductoimagen.imagen = productoimagenEdit.imagen;
+                    oldproductoimagen.id_producto = productoimagenEdit.id_producto;
                     db.SaveChanges();
                     return RedirectToAction("Index");
                 }
@@ -125,8 +108,8 @@ namespace evidencia1.Controllers
             {
                 using (var db = new inventario_2021Entities2())
                 {
-                    producto_compra producto_Compra = db.producto_compra.Find(id);
-                    db.producto_compra.Remove(producto_Compra);
+                    producto_imagen producto_imagen = db.producto_imagen.Find(id);
+                    db.producto_imagen.Remove(producto_imagen);
                     db.SaveChanges();
                     return RedirectToAction("Index");
                 }
@@ -139,3 +122,5 @@ namespace evidencia1.Controllers
         }
     }
 }
+        
+    

@@ -1,10 +1,10 @@
-﻿@model IEnumerable<evidencia1.Models.producto>
+﻿@model IEnumerable<evidencia1.Models.producto_imagen>
 
 @{
-    ViewBag.Title = "Productos";
+    ViewBag.Title = "Producto_Imagen";
 }
 
-<h2>Productos</h2>
+<h2>Producto_Imagen</h2>
 
 <p>
     @Html.ActionLink("Crear Nuevo", "Create")
@@ -12,19 +12,10 @@
 <table class="table">
     <tr>
         <th>
-            Nombre:
+            Imagen:
         </th>
         <th>
-            Precio Unitario:
-        </th>
-        <th>
-            Descripcion:
-        </th>
-        <th>
-            Cantidad:
-        </th>
-        <th>
-            Proveedor:
+            Producto:
         </th>
         <th></th>
     </tr>
@@ -33,19 +24,10 @@
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.nombre)
+                @Html.DisplayFor(modelItem => item.imagen)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.percio_unitario)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.descripcion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.cantidad)
-            </td>
-            <td>
-                @evidencia1.Controllers.ProductoController.NombreProveedor(item.id_proveedor)
+                @evidencia1.Controllers.Producto_imagenController.NombreProducto(item.id_producto)
             </td>
             <td>
                 @Html.ActionLink("Editar", "Edit", new { id = item.id }) |
@@ -56,7 +38,6 @@
     }
 
 </table>
-
 @section scripts{
     <script>
         $(".linkDelete").click(function (event) {
