@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using evidencia1.Models;
+using Rotativa;
 namespace evidencia1.Controllers
 {
     public class ProductoController : Controller
@@ -121,6 +122,37 @@ namespace evidencia1.Controllers
                 ModelState.AddModelError("", "error " + ex);
                 return View();
             }
+
+        }
+        public ActionResult Reporte()
+        {
+            try
+            {
+                var db = new inventario_2021Entities2();
+                var query = from tabProveedor in db.proveedor
+                            join tabProducto in db.producto on tabProveedor.id equals tabProducto.id_proveedor
+                            select new Reporte
+                            {
+                                Proveedor = tabProveedor.nombre,
+                                Telefono = tabProveedor.telefono,
+                                Direeccion = tabProveedor.direccion,
+                                Producto = tabProducto.nombre,
+                                Precio = tabProducto.percio_unitario
+                            };
+                return View(query);
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "error " + ex);
+                return View();
+            }
+        }
+
+        public ActionResult PDF_Reporte()
+        {
+            return new ActionAsPdf("Reporte")
+            { FileName = "Reporte.pdf" }
+            ;
         }
     }
 }

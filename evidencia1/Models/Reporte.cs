@@ -8,11 +8,11 @@ namespace evidencia1.Models
     public class Reporte
     {
 
-        public String NombreProveedor { get; set; }
+        public String Proveedor { get; set; }
         public String Direeccion { get; set; }
         public String Telefono { get; set; }
-        public String nombreProducto { get; set; }
-        public int PrecioProducto { get; set; }
+        public String Producto { get; set; }
+        public int Precio { get; set; }
 
     }
 }

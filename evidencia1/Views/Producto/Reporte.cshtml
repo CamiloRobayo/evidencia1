@@ -1,0 +1,25 @@
+﻿@model IEnumerable<evidencia1.Models.Reporte>
+@{
+    ViewBag.Title = "Reporte";
+}
+
+<h2>Reporte</h2>
+<table class="table">
+    <tr>
+        <th>proveedor</th>
+        <th>Telefono Proveedor</th>
+        <th>Direccion Proveedor</th>
+        <th>Producto</th>
+        <th>Precio Producto</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.Proveedor)</td>
+            <td>@Html.DisplayFor(modelItem => item.Telefono)</td>
+            <td>@Html.DisplayFor(modelItem => item.Direeccion)</td>
+            <td>@Html.DisplayFor(modelItem => item.Producto)</td>
+            <td>@Html.DisplayFor(modelItem => item.Precio)</td>
+        </tr>}
+</table>
+@Html.ActionLink("imprimir reporte", "PDF_Reporte")  
