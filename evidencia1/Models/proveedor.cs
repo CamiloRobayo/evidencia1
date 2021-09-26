@@ -28,5 +28,10 @@ namespace evidencia1.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<producto> producto { get; set; }
+
+        public static implicit operator proveedor(string v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

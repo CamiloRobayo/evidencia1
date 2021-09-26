@@ -6,6 +6,8 @@ using System.Web.Mvc;
 using evidencia1.Models;
 using System.Web.Security;
 using System.Text;
+using System.Web.Routing;
+
 namespace evidencia1.Controllers
 {
     public class UsuariosController : Controller
@@ -183,6 +185,35 @@ namespace evidencia1.Controllers
         {
             FormsAuthentication.SignOut();
             return RedirectToAction("Index", "Home");
+        }
+
+        public ActionResult PaginadorIndex(int pagina = 1)
+        {
+            try
+            {
+                var cantidadRegistros = 5;
+
+                using (var db = new inventario_2021Entities2())
+                {
+                    var usuarios = db.usuario.OrderBy(x => x.id).Skip((pagina - 1) * cantidadRegistros).Take(cantidadRegistros).ToList();
+
+                    var totalRegistros = db.usuario.Count();
+                    var modelo = new UsuarioIndex();
+                    modelo.Usuarios = usuarios;
+                    modelo.ActualPage = pagina;
+                    modelo.Total = totalRegistros;
+                    modelo.RecordsPage = cantidadRegistros;
+                    modelo.valueQueryString = new RouteValueDictionary();
+
+                    return View(modelo);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "error " + ex);
+                return View();
+            }
         }
     }
 }
