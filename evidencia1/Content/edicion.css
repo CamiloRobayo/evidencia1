@@ -1,0 +1,76 @@
+﻿body {
+    color: #080808;
+    background-color: #98bdc3 !important;
+    font-family: 'Robot', sans-serif;
+}
+
+.jumbotron .h1 {
+    color: #3c6ddd;
+}
+
+table tbody tr:nth-child(odd) {
+    background: #C4F8E5;
+}
+
+table tbody tr:nth-child(even) {
+    background: #57968C;
+}
+
+table thead {
+    background: #444;
+    color: #fff;
+    font-size: 18px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table {
+    border: black 5px solid;
+}
+
+tr {
+    border: black 5px solid;
+}
+
+td {
+    border: black 5px solid;
+}
+
+th {
+    border: black 5px solid;
+}
+
+a {
+    color: #01243C;
+    text-decoration: none;
+}
+
+th {
+    background: #7CDFAC;
+}
+
+.navbar-inverse {
+    background-color: #4b555b;
+    border-color: #002bff;
+}
+
+.navbar-inverse .navbar-brand {
+        color: #000000;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+        color: #000000;
+}
+
+.jumbotron {
+    background-color: #f9ffa5;
+}
+
+.container .jumbotron, .container-fluid .jumbotron {
+    padding-right: 15px;
+    padding-left: 15px;
+    border-radius: 100px;
+}
